@@ -22,6 +22,7 @@ import AlertError from "material-ui/svg-icons/alert/error";
 
 export default class Home extends React.Component {
   state = {
+    scores:scores,
     search: "",
     search1: "",
     result: "",
@@ -32,18 +33,21 @@ export default class Home extends React.Component {
   onSearchChange = x => e => {
     console.log(x);
     const res = e.target.value;
-    const games = scores
+    const games = this.state.scores
       .filter(x => x.player1 === res || x.player2 === res)
       .map(x => {
         const playerScore = x.player1 === res ? x.player1score : x.player2score;
         const opScore = x.player2 === res ? x.player1score : x.player2score;
         const opName = x.player2 === res ? x.player1 : x.player2;
+        const playerName = x.player1 === res ? x.player1 : x.player2;
         const win =
           (playerScore > opScore && 1) ||
           (playerScore === opScore && 2) ||
           (playerScore < opScore && 3);
         // 1 = win, 2 = draw, 3 = loss
+        console.log(playerName)
         return {
+          player:playerName,
           win: win,
           playerScore: playerScore,
           opScore: opScore,
@@ -73,6 +77,7 @@ export default class Home extends React.Component {
       return a + b.playerScore;
     }, 0);
     const array = {
+      player:res.player,
       winLoss: winLoss,
       win: win,
       loss: loss,
@@ -86,7 +91,10 @@ export default class Home extends React.Component {
     }
   };
   addNew = (e, item) => {
-console.log(item)
+  console.log(item)
+  this.setState({ 
+    scores: this.state.scores.concat([item])
+})
   };
   render() {
     console.log(this.state);
@@ -134,7 +142,7 @@ console.log(item)
             </div>
           </Tab>
           <Tab label="Add Result">
-            <AddScore data={scores} addNew={this.addNew}/>
+            <AddScore addNew={this.addNew}/>
           </Tab>
         </Tabs>
 

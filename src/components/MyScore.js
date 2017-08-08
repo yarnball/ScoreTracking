@@ -36,7 +36,7 @@ export default class MyScore extends Component {
         {result.length > 0 &&
           <span>
             <TopBoxes
-              title="Win Loss Rate"
+              title={<span> Win Loss rate for </span>}
               symbol="%"
               value={totals.winLoss}
               iconColor={pink600}

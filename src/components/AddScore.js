@@ -7,8 +7,6 @@ import RaisedButton from "material-ui/RaisedButton";
 
 import moment from "moment";
 
-import { scores } from "../config/dummyData.js";
-
 
 const styles = {
   title: {
@@ -22,8 +20,8 @@ class AddScore extends React.Component {
   state = {
     player1: "",
     player2: "",
-    player1Score: "",
-    player2Score: "",
+    player1score: "",
+    player2score: "",
     date: moment().format()
   };
   render() {
@@ -38,12 +36,12 @@ class AddScore extends React.Component {
           <TextField
             hintText="Your name"
             name="test"
-            onChange={e => this.setState({ player1: e.target.value })}
+            onChange={e => this.setState({ player1: e.target.value.toLowerCase() })}
           />
           <br />
           <TextField
             hintText="Opponent name"
-            onChange={e => this.setState({ player2: e.target.value })}
+            onChange={e => this.setState({ player2: e.target.value.toLowerCase() })}
           />
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
@@ -51,13 +49,13 @@ class AddScore extends React.Component {
           <TextField
             type="number"
             hintText="Your score"
-            onChange={e => this.setState({ player1Score: e.target.value })}
+            onChange={e => this.setState({ player1score: parseInt(e.target.value) })}
           />
           <br />
           <TextField
             type="number"
             hintText="Opponent score"
-            onChange={e => this.setState({ player2Score: e.target.value })}
+            onChange={e => this.setState({ player2score: parseInt(e.target.value) })}
           />
         </div>
         <RaisedButton primary={true} label="Submit scores!" fullWidth={true} onClick={e => addNew(e, this.state)}/>
