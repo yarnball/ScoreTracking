@@ -55,19 +55,19 @@ export default class Home extends React.Component {
         };
       });
 
-    if (x === 1) {
+    if (x === 'player1') {
       this.setState({ result: games, search: res }, () => {
-        this.getTotals(1);
+        this.getTotals('player1');
       });
     } else {
       this.setState({ result1: games, search1: res }, () => {
-        this.getTotals(2);
+        this.getTotals('player2');
       });
     }
   };
 
   getTotals = e => {
-    const res = e === 1 ? this.state.result : this.state.result1;
+    const res = e === 'player1' ? this.state.result : this.state.result1;
     const win = Object.keys(res.filter(x => x.win === 1)).length;
     const draw = Object.keys(res.filter(x => x.win === 2)).length;
     const loss = Object.keys(res.filter(x => x.win === 3)).length;
@@ -82,7 +82,7 @@ export default class Home extends React.Component {
       draw: draw,
       totalPts: totalPts
     };
-    if (e === 1) {
+    if (e === 'player1') {
       this.setState({ totals: array });
     } else {
       this.setState({ totals1: array });
@@ -92,7 +92,7 @@ export default class Home extends React.Component {
   console.log(item)
   this.setState({ 
     scores: this.state.scores.concat([item])
-})
+  })
   };
   render() {
     // console.log(this.state);
@@ -114,7 +114,7 @@ export default class Home extends React.Component {
               search={search}
               result={result}
               totals={totals}
-              onSearchChange={this.onSearchChange(1)}
+              onSearchChange={this.onSearchChange('player1')}
             />
           </Tab>
           <Tab label="Compare Scores">
@@ -125,7 +125,7 @@ export default class Home extends React.Component {
                   search={search}
                   result={result}
                   totals={totals}
-                  onSearchChange={this.onSearchChange(1)}
+                  onSearchChange={this.onSearchChange('player1')}
                 />
               </div>
               <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
@@ -134,7 +134,7 @@ export default class Home extends React.Component {
                   search={search1}
                   result={result1}
                   totals={totals1}
-                  onSearchChange={this.onSearchChange(2)}
+                  onSearchChange={this.onSearchChange('player2')}
                 />
               </div>
             </div>
