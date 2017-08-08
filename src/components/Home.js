@@ -45,7 +45,6 @@ export default class Home extends React.Component {
           (playerScore === opScore && 2) ||
           (playerScore < opScore && 3);
         // 1 = win, 2 = draw, 3 = loss
-        console.log(playerName)
         return {
           player:playerName,
           win: win,
@@ -77,7 +76,6 @@ export default class Home extends React.Component {
       return a + b.playerScore;
     }, 0);
     const array = {
-      player:res.player,
       winLoss: winLoss,
       win: win,
       loss: loss,
@@ -97,7 +95,7 @@ export default class Home extends React.Component {
 })
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const { search, search1, totals, totals1, result, result1 } = this.state;
     const styles = {
       headline: {
