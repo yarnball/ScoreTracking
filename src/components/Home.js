@@ -19,7 +19,7 @@ export default class Home extends React.Component {
   onSearchChange = x => e => {
     const res = e.target.value;
     const games = this.state.scores
-      .filter(x => x.player1 === res || x.player2 === res)
+      .filter(x => x.player1 === res.toLowerCase() || x.player2 === res.toLowerCase())
       .sort((a, b) => new Date(a.fullDate)/1000 -new Date(b.fullDate)/1000)
       .map(x => {
         const playerScore = x.player1 === res ? x.player1score : x.player2score;
@@ -50,7 +50,6 @@ export default class Home extends React.Component {
       });
     }
   };
-
   getTotals = e => {
     const res = e === 'player1' ? this.state.result : this.state.result1;
     const win = Object.keys(res.filter(x => x.win === 1)).length;
