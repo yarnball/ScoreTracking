@@ -1,7 +1,13 @@
+// Sort by sport then 
+// Reviews
+// Private sessions- map
+// Send video of multiple angles (slow motion)
+// Think SEO
+// Reivews are visible to the coach & management (just starts for users)
+// My footage (store footage locally?) or on server
+
 import React from "react";
 
-import { pink400, pink600 } from "material-ui/styles/colors";
-import TopBoxes from "./TopBoxes";
 import MyScore from "./MyScore";
 // import Graph from "./Graph";
 // import Graph1 from "./Graph1";
@@ -14,11 +20,7 @@ import { scores } from "../config/dummyData.js";
 
 import { Tabs, Tab } from "material-ui/Tabs";
 import AddScore from "./AddScore";
-import TextField from "material-ui/TextField";
-
-import { List, ListItem } from "material-ui/List";
-import ActionGrade from "material-ui/svg-icons/action/grade";
-import AlertError from "material-ui/svg-icons/alert/error";
+import moment from "moment";
 
 export default class Home extends React.Component {
   state = {
@@ -35,6 +37,7 @@ export default class Home extends React.Component {
     const res = e.target.value;
     const games = this.state.scores
       .filter(x => x.player1 === res || x.player2 === res)
+      .sort((a, b) => new Date(a.fullDate)/1000 -new Date(b.fullDate)/1000)
       .map(x => {
         const playerScore = x.player1 === res ? x.player1score : x.player2score;
         const opScore = x.player2 === res ? x.player1score : x.player2score;
@@ -46,15 +49,16 @@ export default class Home extends React.Component {
           (playerScore < opScore && 3);
         // 1 = win, 2 = draw, 3 = loss
         return {
-          player:playerName,
+
           win: win,
+          player:playerName,
           playerScore: playerScore,
           opScore: opScore,
-          date: x.date,
-          opName: opName
+          opName: opName,
+          fullDate: x.fullDate,
+          shortDate:moment(x.fullDate).format('MM-YYYY')
         };
       });
-
     if (x === 'player1') {
       this.setState({ result: games, search: res }, () => {
         this.getTotals('player1');
@@ -94,17 +98,10 @@ export default class Home extends React.Component {
     scores: this.state.scores.concat([item])
   })
   };
+
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     const { search, search1, totals, totals1, result, result1 } = this.state;
-    const styles = {
-      headline: {
-        fontSize: 24,
-        paddingTop: 16,
-        marginBottom: 12,
-        fontWeight: 400
-      }
-    };
     return (
       <div className="innerBody">
         <Tabs>

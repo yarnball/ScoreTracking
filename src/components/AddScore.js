@@ -21,14 +21,12 @@ class AddScore extends React.Component {
     player2: '',
     player1score: '',
     player2score: '',
-    date: moment().format(),
+    fulldate: moment().format(),
     confirmed:false
   }
   render() {
-    console.log(this.state)
     const { addNew } = this.props;
     const {confirmed} = this.state;
-    console.log(confirmed)
     return (
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
@@ -52,14 +50,14 @@ class AddScore extends React.Component {
             type="number"
             hintText="Your score"
             onChange={e =>
-              this.setState({ player1score: parseInt(e.target.value)})}
+              this.setState({ player1score: parseInt(e.target.value, 1)})}
           />
           <br />
           <TextField
             type="number"
             hintText="Opponent score"
             onChange={e =>
-              this.setState({ player2score: parseInt(e.target.value) })}
+              this.setState({ player2score: parseInt(e.target.value, 1)})}
           />
         </div>
         <RaisedButton label="These results are correct" primary={true} disabled={confirmed} onClick={e => this.setState({ confirmed: true})}/>

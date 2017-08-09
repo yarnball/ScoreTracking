@@ -3,12 +3,16 @@ import {
   pink400,
   pink600,
 } from "material-ui/styles/colors";
+
+
 import TextField from "material-ui/TextField";
 import TopBoxes from "./TopBoxes";
 
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import AlertError from 'material-ui/svg-icons/alert/error';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+
 
 export default class MyScore extends Component {
   render() {
@@ -21,7 +25,6 @@ export default class MyScore extends Component {
         fontWeight: 400
       }
     };
-
     return (
       <div>
         <h2 style={styles.headline}>{title}</h2>
@@ -35,6 +38,18 @@ export default class MyScore extends Component {
 
         {result.length > 0 &&
           <span>
+          <LineChart width={400} height={300} data={result}
+            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+       <XAxis dataKey="shortDate"/>
+       <YAxis/>
+       <CartesianGrid strokeDasharray="3 3"/>
+       <Tooltip/>
+       <Legend />
+       <Line type="monotone" dataKey="opScore" stroke="#8884d8" activeDot={{r: 8}}/>
+       <Line type="monotone" dataKey="opName" stroke="orange" activeDot={{r: 8}}/>
+       <Line type="monotone" dataKey="playerScore" stroke="#82ca9d" />
+      </LineChart>
+
             <TopBoxes
               title="Win Loss Rate"
               symbol="%"
