@@ -66,7 +66,6 @@ export default class Home extends React.Component {
       draw: draw,
       totalPts: totalPts
     };
-    console.log('created', array)
     if (e === 'player1') {
       this.setState({ totals: array });
     } else {

@@ -29,7 +29,7 @@ class Header extends React.Component {
         <div>
           <AppBar
               style={style.appBar}
-              title="Foos ball"
+              title="Foosballer"
               iconElementRight={
                 <div style={style.iconsRightContainer}>
               <ViewModule color={white} />
