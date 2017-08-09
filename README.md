@@ -1,4 +1,5 @@
 # Details coming soon
+* see it live! https://codesandbox.io/s/L828KpP4D
 
 #### Dev:
 * Swap out the firebase config in ```config/constants``` with your own API details
