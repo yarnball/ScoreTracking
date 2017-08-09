@@ -37,7 +37,7 @@ export default class Home extends React.Component {
           opScore: parseInt(opScore,0),
           opName: opName,
           fullDate: x.fullDate,
-          shortDate:moment(x.fullDate).format('MMMM-YYYY')
+          shortDate:moment(x.fullDate).format('MMM-YYYY')
         };
       });
     if (x === 'player1') {
