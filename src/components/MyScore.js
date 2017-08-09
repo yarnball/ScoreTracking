@@ -29,7 +29,7 @@ export default class MyScore extends Component {
       <div>
         <h2 style={styles.headline}>{title}</h2>
         <TextField
-          hintText="Enter your name"
+          hintText="Enter a name (try Keith, Charlie, Ian, Brian etc!)"
           name="test"
           value={search}
           fullWidth={true}

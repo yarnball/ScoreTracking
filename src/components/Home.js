@@ -51,8 +51,8 @@ export default class Home extends React.Component {
         return {
           win: win,
           player:playerName,
-          playerScore: playerScore,
-          opScore: opScore,
+          playerScore: parseInt(playerScore,0),
+          opScore: parseInt(opScore,0),
           opName: opName,
           fullDate: x.fullDate,
           shortDate:moment(x.fullDate).format('MM-YYYY')
@@ -103,6 +103,7 @@ export default class Home extends React.Component {
     const { search, search1, totals, totals1, result, result1 } = this.state;
     return (
       <div className="innerBody">
+
         <Tabs>
           <Tab label="My Score">
             <MyScore
