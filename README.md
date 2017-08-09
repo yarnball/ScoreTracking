@@ -1,4 +1,4 @@
-# Details coming soon
+# Score counter using react state
 * see it live! https://codesandbox.io/s/nOOKm7Yl
 
 *Using React 15.4.0, React Router 4, and Material UI*
