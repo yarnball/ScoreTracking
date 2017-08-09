@@ -1,5 +1,5 @@
 # Score counter using react state
-* see it live! https://codesandbox.io/s/nOOKm7Yl
+* see it live! https://codesandbox.io/s/l5nlQ75A6
 
 *Using React 15.4.0, React Router 4, and Material UI*
 
@@ -15,9 +15,9 @@
 
 
 ### Desktop Preview
-
-![Screenshot desktop 1](https://github.com/yarnball/ScoreTracking/blob/master/preview/desktop_1.jpg)
 ![Screenshot desktop 2](https://github.com/yarnball/ScoreTracking/blob/master/preview/desktop_2.jpg)
+![Screenshot desktop 1](https://github.com/yarnball/ScoreTracking/blob/master/preview/desktop_1.jpg)
+
 
 ### Mobile Preview
 ![Screenshot mobile_1](https://github.com/yarnball/ScoreTracking/blob/master/preview/mobile_1.jpg)
