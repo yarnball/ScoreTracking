@@ -30,7 +30,6 @@ export default class Home extends React.Component {
           (playerScore > opScore && 1) ||
           (playerScore === opScore && 2) ||
           (playerScore < opScore && 3);
-        // 1 = win, 2 = draw, 3 = loss
         return {
           win: win,
           player:playerName,

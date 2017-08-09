@@ -1,11 +1,10 @@
 import React from "react";
+import moment from "moment";
 
 import TextField from "material-ui/TextField";
 import { typography } from "material-ui/styles";
 
 import RaisedButton from "material-ui/RaisedButton";
-
-import moment from "moment";
 
 const styles = {
   title: {
