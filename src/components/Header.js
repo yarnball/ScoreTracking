@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import {white, red500} from 'material-ui/styles/colors';
+import {white, green300} from 'material-ui/styles/colors';
 import ViewModule from 'material-ui/svg-icons/action/view-module';
 
 class Header extends React.Component {
@@ -12,7 +12,7 @@ class Header extends React.Component {
         top: -4,
         overflow: 'hidden',
         maxHeight: 57,
-        backgroundColor:red500,
+        backgroundColor:green300,
         color:white,
       },
       menuButton: {
