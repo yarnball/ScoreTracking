@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { pink400, pink600 } from "material-ui/styles/colors";
+import { green300, green200 } from "material-ui/styles/colors";
 
 import TextField from "material-ui/TextField";
 import TopBoxes from "./TopBoxes";
@@ -73,8 +73,8 @@ export default class MyScore extends Component {
               title="Win Loss Rate"
               symbol="%"
               value={totals.winLoss}
-              iconColor={pink600}
-              boxColor={pink400}
+              iconColor={green200}
+              boxColor={green300}
             />
             {result.map((x, index) => {
               const win =
