@@ -22,8 +22,8 @@ export default class Home extends React.Component {
       .filter(x => x.player1 === res || x.player2 === res)
       .sort((a, b) => new Date(a.fullDate)/1000 -new Date(b.fullDate)/1000)
       .map(x => {
-        const playerScore = x.player1 === res ? x.player1score : x.player2score;
-        const opScore = x.player2 === res ? x.player1score : x.player2score;
+        const playerScore = Number(x.player1 === res ? x.player1score : x.player2score);
+        const opScore = Number(x.player2 === res ? x.player1score : x.player2score);
         const opName = x.player2 === res ? x.player1 : x.player2;
         const playerName = x.player1 === res ? x.player1 : x.player2;
         const win =
@@ -33,8 +33,8 @@ export default class Home extends React.Component {
         return {
           win: win,
           player:playerName,
-          playerScore: parseInt(playerScore,0),
-          opScore: parseInt(opScore,0),
+          playerScore: Number(playerScore),
+          opScore: Number(opScore),
           opName: opName,
           fullDate: x.fullDate,
           shortDate:moment(x.fullDate).format('MMM-YYYY')
@@ -66,6 +66,7 @@ export default class Home extends React.Component {
       draw: draw,
       totalPts: totalPts
     };
+    console.log('created', array)
     if (e === 'player1') {
       this.setState({ totals: array });
     } else {
