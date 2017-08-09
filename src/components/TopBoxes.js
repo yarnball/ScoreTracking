@@ -6,7 +6,6 @@ import Paper from "material-ui/Paper";
 export default class Home extends Component {
   render() {
     const { title, value, iconColor, boxColor, symbol } = this.props;
-    // NOTE: When passing a funciton (IE the Icon) then must use a capital where passing it as a prop.
     const styles = {
       content: {
         padding: "5px 10px",
@@ -34,22 +33,6 @@ export default class Home extends Component {
         textAlign: "center",
         backgroundColor: iconColor
       },
-      icon: {
-        height: 38,
-        width: 38,
-        marginTop: 15,
-        maxWidth: "100%",
-        color: white
-      },
-      prefix: {
-        fontWeight: typography.fontWeightMedium,
-        fontSize: 12,
-        marginRight: 1,
-        color: white,
-        // verticalAlign:'top',
-        position: "relative",
-        bottom: 3.5
-      }
     };
     return (
       <Paper>

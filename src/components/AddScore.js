@@ -22,11 +22,26 @@ class AddScore extends React.Component {
     player1score: '',
     player2score: '',
     fulldate: moment().format(),
-    confirmed:false
+    confirmed:false,
+    reset:false,
+  }
+  onChange = x => e => {
+     if (x === 'player1') this.setState({ player1: e.target.value.toLowerCase() }, () => {this.checkValid();})
+     if (x === 'player2')  this.setState({ player2: e.target.value.toLowerCase() }, () => {this.checkValid();})
+     if (x === 'player1score') this.setState({ player1score: parseInt(e.target.value, 0) }, () => {this.checkValid();})
+     if (x === 'player2score') this.setState({ player2score: parseInt(e.target.value, 0)  }, () => {this.checkValid();})
+  };
+  checkValid = e =>{
+    const {player1, player2, player1score, player2score } = this.state;
+    player1 && player2 && player1score.toString().length > 0 && player2score.toString().length > 0 ? this.setState({ confirmed: true }) : this.setState({ confirmed: false });
+  }
+    now = e =>{
+    console.log('genius')
   }
   render() {
     const { addNew } = this.props;
     const {confirmed} = this.state;
+    // console.log('current state', this.state)
     return (
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
@@ -34,14 +49,12 @@ class AddScore extends React.Component {
           <TextField
             hintText="Your name"
             name="test"
-            onChange={e =>
-              this.setState({ player1: e.target.value.toLowerCase() })}
+            onChange={this.onChange('player1')}
           />
           <br />
           <TextField
             hintText="Opponent name"
-            onChange={e =>
-              this.setState({ player2: e.target.value.toLowerCase() })}
+            onChange={this.onChange('player2')}
           />
         </div>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-md m-b-15">
@@ -49,24 +62,22 @@ class AddScore extends React.Component {
           <TextField
             type="number"
             hintText="Your score"
-            onChange={e =>
-              this.setState({ player1score: parseInt(e.target.value, 1)})}
+            onChange={this.onChange('player1score')}
           />
           <br />
           <TextField
             type="number"
             hintText="Opponent score"
-            onChange={e =>
-              this.setState({ player2score: parseInt(e.target.value, 1)})}
+            onChange={this.onChange('player2score')}
           />
         </div>
-        <RaisedButton label="These results are correct" primary={true} disabled={confirmed} onClick={e => this.setState({ confirmed: true})}/>
         <RaisedButton
           primary={true}
           label="Submit scores!"
           disabled={!confirmed}
           fullWidth={true}
-          onClick={e => addNew(e, this.state)}
+          // onClick={e => addNew(e, this.state), this.now}
+          onClick={e => { addNew(e, this.state); this.now(); }}
         />
       </div>
     );

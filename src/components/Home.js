@@ -49,7 +49,6 @@ export default class Home extends React.Component {
           (playerScore < opScore && 3);
         // 1 = win, 2 = draw, 3 = loss
         return {
-
           win: win,
           player:playerName,
           playerScore: playerScore,
@@ -93,7 +92,7 @@ export default class Home extends React.Component {
     }
   };
   addNew = (e, item) => {
-  console.log(item)
+  console.log('just added', item)
   this.setState({ 
     scores: this.state.scores.concat([item])
   })

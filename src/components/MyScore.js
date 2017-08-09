@@ -11,7 +11,7 @@ import TopBoxes from "./TopBoxes";
 import {List, ListItem} from 'material-ui/List';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import AlertError from 'material-ui/svg-icons/alert/error';
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 
 export default class MyScore extends Component {
