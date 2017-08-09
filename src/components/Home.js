@@ -17,9 +17,9 @@ export default class Home extends React.Component {
     totals1: ""
   };
   onSearchChange = x => e => {
-    const res = e.target.value;
+    const res = e.target.value.toLowerCase();
     const games = this.state.scores
-      .filter(x => x.player1 === res.toLowerCase() || x.player2 === res.toLowerCase())
+      .filter(x => x.player1 === res || x.player2 === res)
       .sort((a, b) => new Date(a.fullDate)/1000 -new Date(b.fullDate)/1000)
       .map(x => {
         const playerScore = x.player1 === res ? x.player1score : x.player2score;

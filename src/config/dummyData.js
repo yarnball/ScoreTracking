@@ -24,7 +24,7 @@ export const scores = [
       "player1": "keith",
       "player2": "brian",
       "player1score": 16,
-      "player2score": 34,
+      "player2score": 14,
       "fullDate": "2016-06-07"
    },
       {
