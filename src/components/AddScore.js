@@ -45,7 +45,7 @@ class AddScore extends React.Component {
     const { player1, player2, player1score, player2score } = this.state;
     if (player1 && player2 && player1score.toString().length > 0 && player2score.toString().length > 0) { this.setState({ confirmed: true }); } 
     else { this.setState({ confirmed: false }); }; };
-  now = e => {
+  clear = e => {
     this.setState({ player1: "", player2: "", player1score: "", player2score: "", fulldate: moment().format(), confirmed: false });
   };
   render() {
@@ -97,7 +97,7 @@ class AddScore extends React.Component {
           // onClick={e => addNew(e, this.state), this.now}
           onClick={e => {
             addNew(e, this.state);
-            this.now();
+            this.clear();
           }}
         />
       </div>
